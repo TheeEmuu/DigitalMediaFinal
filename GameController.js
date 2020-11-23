@@ -219,7 +219,7 @@ function submit(ans){
 
     questionNumber++;
 
-    if(questionNumber < 20){
+    if(questionNumber < 10){
         cur = questions[questionNumber];
 
         $("#a1").attr("src", cur.a1);
