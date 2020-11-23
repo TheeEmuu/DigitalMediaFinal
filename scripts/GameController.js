@@ -1,18 +1,9 @@
-var jquery = document.createElement('script');
-jquery.src = 'http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js';
-jquery.type = 'text/javascript';
-var questions = document.createElement('script');
-questions.src = './Questions.js';
-questions.type = 'text/javascript';
-
-document.getElementsByTagName('head')[0].appendChild(jquery);
-document.getElementsByTagName('head')[0].appendChild(questions);
-
 var questionNumber = 0;
 var score = 0;
 var cur;
+let questions = []
 $(document).ready(function(){
-    let questions = [
+    questions = [
         //Q1
         new Question(
             "assets\\questionResponses\\",
