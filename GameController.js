@@ -219,10 +219,15 @@ function submit(ans){
 
     questionNumber++;
 
-    cur = questions[questionNumber];
+    if(questionNumber < 20){
+        cur = questions[questionNumber];
 
-    $("#a1").attr("src", cur.a1);
-    $("#a2").attr("src", cur.a2);
-    $("#a3").attr("src", cur.a3);
-    $("#a4").attr("src", cur.a4);
+        $("#a1").attr("src", cur.a1);
+        $("#a2").attr("src", cur.a2);
+        $("#a3").attr("src", cur.a3);
+        $("#a4").attr("src", cur.a4);
+    }
+    else{
+        //finish
+    }
 }
