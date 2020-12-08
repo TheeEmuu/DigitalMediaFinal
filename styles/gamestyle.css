@@ -21,7 +21,7 @@ img{
     padding: 3vh;
 }
 
-#Q{
+#MainQ{
     text-align: center;
     align-content: center;
     font-size: 5vh;
@@ -29,9 +29,38 @@ img{
     color: royalblue;
 }
 
-#a1, #a2, #a3, #a4{
+.answer{
     max-width: 50vh;
     max-height: 50vh;
     padding: 3vh;
+    border-style: solid;
+    border-width: 10px;
+    border-color: rgba(0,0,0,0);
 }
 
+.correct{
+    position: absolute;
+    display: none;
+    overflow: hidden;
+    /* height: 100%; */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 255, 0, 0.5);
+    z-index: 2;
+}
+
+.incorrect{
+    position: absolute;
+    display: none;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 0, 0, 0.5);
+    z-index: 2;
+}

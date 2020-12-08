@@ -55,17 +55,17 @@ $(document).ready(function(){
         //Q7
         new Question(
             "assets\\questionResponses\\Q7A1.png",
-            "assets\\questionResponses\\Q7A2.jpg",
+            "assets\\questionResponses\\Q7A2.png",
             "assets\\questionResponses\\Q7A3.jpg",
-            "assets\\questionResponses\\Q7A4.jpg",
+            "assets\\questionResponses\\Q7A4.png",
             1,
         ),
         //Q8
         new Question(
-            "assets\\questionResponses\\Q8A1.png",
-            "assets\\questionResponses\\Q8A2.png",
+            "assets\\questionResponses\\Q8A1.jpg",
+            "assets\\questionResponses\\Q8A2.jpg",
             "assets\\questionResponses\\Q8A3.jpg",
-            "assets\\questionResponses\\Q8A4.png",
+            "assets\\questionResponses\\Q8A4.jpg",
             4,
         ),
         //Q9
@@ -200,18 +200,23 @@ function random(min, max) {
 function submit(ans){
     //correct
     if(cur.answer(ans)){
-        $(cur.getAnswer()).css("background", "#FF0000");
         score++;
     }
     //incorrect
     else{
-        //red animation
+        $(cur.getIncorrectAnswer(ans)).css('border-color', 'rgba(255,0,0,1)');
     }
-    
-    setTimeout(() => {
-        questionNumber++;
 
-        $("#score").html(score + "/" + questionNumber);
+    $(cur.getCorrectAnswer()).css('border-color', 'rgba(0,255,0,1)');
+
+    setTimeout(() => {
+        $(".answer").css('border-color', 'rgba(0,0,0,0)');
+        $(".answer").fadeOut(200);
+
+        setTimeout(() => {
+            questionNumber++;
+
+        $("#progress").html(questionNumber + "/10");
 
         if(questionNumber < 10){
             cur = questions[questionNumber];
@@ -220,9 +225,23 @@ function submit(ans){
             $("#a2").attr("src", cur.a2);
             $("#a3").attr("src", cur.a3);
             $("#a4").attr("src", cur.a4);
+
+            $(".answer").fadeIn(200);
         }
         else{
-            //finish
+            $("#Q").html("Game Over!");
+
+            var result = 
+                score == 0 ? "need to get your eyes checked" : 
+                score < 3 ? "should probably get your eyes checked" : 
+                score < 5 ? "got less than half right" :
+                score < 7 ? "did okay" :
+                score < 9 ? "did pretty well" :
+                score < 10 ? "did very well" :
+                "did perfectly";
+
+            $("#progress").html("You scored " + score + " out of 10, that means you " + result + "!");
         }
+        }, 200)
     }, 2000);
 }

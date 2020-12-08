@@ -11,7 +11,12 @@ class Question {
         return ans == this.correctAnswer;
     }
 
-    getAnswer(ans){
+    getCorrectAnswer(){
+        // return "#a" + this.correctAnswer + "correct";
+        return "#a" + this.correctAnswer;
+    }
+
+    getIncorrectAnswer(ans){
         return "#a" + ans;
     }
 }
