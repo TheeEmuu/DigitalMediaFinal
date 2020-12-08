@@ -233,10 +233,10 @@ function submit(ans){
 
             var result = 
                 score == 0 ? "need to get your eyes checked" : 
-                score < 3 ? "should probably get your eyes checked" : 
-                score < 5 ? "got less than half right" :
-                score < 7 ? "did okay" :
-                score < 9 ? "did pretty well" :
+                score < 3  ? "should probably get your eyes checked" : 
+                score < 5  ? "got less than half right" :
+                score < 7  ? "did okay" :
+                score < 9  ? "did pretty well" :
                 score < 10 ? "did very well" :
                 "did perfectly";
 
