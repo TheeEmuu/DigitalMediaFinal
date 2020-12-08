@@ -10,4 +10,8 @@ class Question {
     answer(ans){
         return ans == this.correctAnswer;
     }
+
+    getAnswer(ans){
+        return "#a" + ans;
+    }
 }

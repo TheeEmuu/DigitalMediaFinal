@@ -46,10 +46,10 @@ $(document).ready(function(){
         ),
         //Q6
         new Question(
-            "assets\\questionResponses\\Q6A1.*",
-            "assets\\questionResponses\\Q6A2.*",
-            "assets\\questionResponses\\Q6A3.*",
-            "assets\\questionResponses\\Q6A4.*",
+            "assets\\questionResponses\\Q6A1.png",
+            "assets\\questionResponses\\Q6A2.jpg",
+            "assets\\questionResponses\\Q6A3.jpg",
+            "assets\\questionResponses\\Q6A4.jpg",
             4,
         ),
         //Q7
@@ -177,10 +177,10 @@ $(document).ready(function(){
     $("#a4").attr("src", cur.a4);
 
     //take input
-    $("#a1").click(submit(1));
-    $("#a2").click(submit(2));
-    $("#a3").click(submit(3));
-    $("#a4").click(submit(4));
+    document.getElementById("a1").onclick = function(){submit(1)};
+    document.getElementById("a2").onclick = function(){submit(2)};
+    document.getElementById("a3").onclick = function(){submit(3)};
+    document.getElementById("a4").onclick = function(){submit(4)};
 });
 
 //Fisher-Yates shuffle 
@@ -200,25 +200,29 @@ function random(min, max) {
 function submit(ans){
     //correct
     if(cur.answer(ans)){
-        //green animation
+        $(cur.getAnswer()).css("background", "#FF0000");
         score++;
     }
     //incorrect
     else{
         //red animation
     }
+    
+    setTimeout(() => {
+        questionNumber++;
 
-    questionNumber++;
+        $("#score").html(score + "/" + questionNumber);
 
-    if(questionNumber < 10){
-        cur = questions[questionNumber];
+        if(questionNumber < 10){
+            cur = questions[questionNumber];
 
-        $("#a1").attr("src", cur.a1);
-        $("#a2").attr("src", cur.a2);
-        $("#a3").attr("src", cur.a3);
-        $("#a4").attr("src", cur.a4);
-    }
-    else{
-        //finish
-    }
+            $("#a1").attr("src", cur.a1);
+            $("#a2").attr("src", cur.a2);
+            $("#a3").attr("src", cur.a3);
+            $("#a4").attr("src", cur.a4);
+        }
+        else{
+            //finish
+        }
+    }, 2000);
 }
